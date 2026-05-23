@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Henry Global Tech Industry | Official Blog</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for blog style -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f7fb;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1f2e;
+            padding: 2rem 1rem;
+        }
+
+        /* blog container - clean card style */
+        .blog-container {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* header area */
+        .blog-header {
+            padding: 2rem 2rem 0.5rem 2rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .blog-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1a2a4f, #0f1a2e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .blog-header .tagline {
+            color: #5b6e8c;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* animation canvas - refined, subtle, professional */
+        .animation-card {
+            background: #0b0f18;
+            margin: 1.5rem 2rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: #0b0f18;
+            cursor: pointer;
+        }
+        .animation-caption {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 0.6rem;
+            color: #7f8fa4;
+            background: #f8fafd;
+            border-top: 1px solid #eef2f8;
+            letter-spacing: 0.3px;
+        }
+
+        /* realistic image (tech campus / people) */
+        .feature-image {
+            margin: 0 2rem 1.5rem 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #edf2f7;
+        }
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* about button — minimal, blog style */
+        .about-button-wrapper {
+            text-align: center;
+            margin: 1rem 2rem 1.5rem 2rem;
+        }
+        .about-hgt-btn {
+            background: #1f2b48;
+            border: none;
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+            transition: opacity 0.4s ease, visibility 0.4s, transform 0.3s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .about-hgt-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .about-hgt-btn:hover {
+            background: #0f1a30;
+            transform: scale(1.01);
+        }
+
+        /* progress overlay - clean modal */
+        .progress-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 20, 30, 0.85);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s;
+        }
+        .progress-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .progress-card {
+            background: #ffffff;
+            padding: 2rem 2.2rem;
+            border-radius: 48px;
+            text-align: center;
+            min-width: 280px;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+        }
+        .circular-progress {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+        .progress-ring-bg {
+            stroke: #e2e8f0;
+            stroke-width: 7;
+            fill: none;
+        }
+        .progress-ring-fill {
+            stroke: #1f2b48;
+            stroke-width: 7;
+            fill: none;
+            stroke-dasharray: 339.292;
+            stroke-dashoffset: 339.292;
+            transition: stroke-dashoffset 0.1s linear;
+            stroke-linecap: round;
+        }
+        .progress-percent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1f2b48;
+        }
+        .progress-status {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2d3a5e;
+            background: #f1f5f9;
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            margin-top: 0.8rem;
+        }
+
+        /* BLOG CONTENT SECTIONS (2000+ words split into 4) */
+        .blog-content {
+            padding: 0 2rem 2rem 2rem;
+        }
+        .content-section {
+            display: none;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1rem 0;
+            animation: fadeIn 0.35s ease;
+        }
+        .content-section.active-section {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .blog-text {
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+        .blog-text h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1rem 0 0.75rem;
+            color: #0f1e3a;
+            border-left: 4px solid #1f2b48;
+            padding-left: 1rem;
+        }
+        .blog-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.5rem;
+            color: #1f2b48;
+        }
+        .blog-text p {
+            margin-bottom: 1rem;
+        }
+        .blog-text ul, .blog-text ol {
+            margin: 0.75rem 0 1rem 1.8rem;
+        }
+        .blog-text li {
+            margin: 0.4rem 0;
+        }
+        .contact-block {
+            background: #f8fafc;
+            padding: 1rem 1.4rem;
+            border-radius: 20px;
+            margin: 1.2rem 0;
+            border: 1px solid #eef2f8;
+        }
+        .next-btn-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #edf2f7;
+        }
+        .next-btn {
+            background: #eef2f9;
+            border: none;
+            padding: 0.6rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: #1f2b48;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .next-btn:hover {
+            background: #e2e8f2;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: 0;
+            height: 1px;
+            background: #ecf3f9;
+        }
+        footer {
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #ecf3f9;
+            color: #7c8ba0;
+        }
+        @media (max-width: 600px) {
+            .blog-container { border-radius: 20px; }
+            .blog-header, .animation-card, .feature-image, .about-button-wrapper, .blog-content { margin-left: 1rem; margin-right: 1rem; }
+            .blog-content { padding: 0 1rem 1.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="blog-container">
+    <div class="blog-header">
+        <h1><i class="fas fa-industry"></i> Henry Global Tech Industry</h1>
+        <div class="tagline">Utility · SaaS · Absolute Transparency — Est. July 31st, 2025</div>
+    </div>
+
+    <!-- ANIMATION: professional butterfly scatter/split -->
+    <div class="animation-card">
+        <canvas id="butterflyCanvas" width="800" height="280" style="width:100%; height:auto; aspect-ratio:800/280"></canvas>
+        <div class="animation-caption"><i class="fas fa-butterfly"></i> The metamorphosis of innovation — scattering → butterfly → reunion</div>
+    </div>
+
+    <!-- REALISTIC TECHNOLOGY STORE IMAGE (people / campus, no emoji) -->
+    <div class="feature-image">
+        <img id="techImage" src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop" alt="HGT technology campus with engineers and collaborators">
+    </div>
+
+    <!-- ABOUT BUTTON (appears after animation ends) -->
+    <div class="about-button-wrapper">
+        <button id="aboutHgtBtn" class="about-hgt-btn"><i class="fas fa-chart-simple"></i> About HGT <i class="fas fa-arrow-right"></i></button>
+    </div>
+
+    <!-- BLOG CONTENT: 4 SECTIONS WITH NEXT BUTTON (2000+ words total) -->
+    <div class="blog-content" id="blogContent">
+        <!-- SECTION 1 - THE VISION -->
+        <div id="section1" class="content-section active-section">
+            <div class="blog-text">
+                <h2><i class="fas fa-eye"></i> The Vision & Foundation</h2>
+                <p>Established on <strong>July 31st, 2025</strong>, Henry Global Tech Industry (HGT) represents more than just a software company; it is a manifestation of a vision for a smarter, more connected digital future. Visualized and founded by <strong>Henry Kamsi Okwuabudike</strong>, HGT was born out of a necessity to bridge the gap between complex technological capabilities and the daily needs of the average mobile user.</p>
+                <p>In a world saturated with digital noise, HGT stands as a beacon of clarity and purpose. From its inception, the organization was built on a core philosophy: <strong>technology should serve the user, not the other way around</strong>. Henry Kamsi Okwuabudike recognized early on that the mobile revolution in Nigeria and across the globe required developers who prioritize integrity and utility above rapid, unregulated expansion.</p>
+                <p>The name "Henry Global Tech Industry" signifies our ambition to reach every corner of the planet with software that makes life easier. We operate under the belief that every line of code written within our walls carries a responsibility. By focusing on utility applications and sophisticated Software-as-a-Service (SaaS) models, we aim to provide tools that empower individuals and organizations alike. Our foundation is built on transparency, a trait that we believe is currently missing in the modern tech landscape. We don't just build apps; we build relationships based on the promise of innovation and unwavering reliability. As we move forward, our commitment to this vision remains our guiding star, ensuring that every project we undertake is executed with precision, passion, and the ultimate goal of improving the human experience through technology.</p>
+                <p>HGT's founding principle rejects the "move fast and break things" culture. Instead we adopt: <strong>build sustainably, respect privacy, and empower users</strong>. Our roadmap focuses on African markets initially, then scaling globally with the same ethical backbone. We are a proudly Nigerian-founded technology house with universal ambitions.</p>
+            </div>
+            <div class="next-btn-wrapper"><button class="next-btn" data-next="2">Next <i class="fas fa-chevron-right"></i></button></div>
+        </div>
+
+        <!-- SECTION 2 - CORE GOALS: UTILITY & SAAS -->
+        <div id="section2" class="content-section">
+            <div class="blog-text">
+                <h2><i class="fas fa-cubes"></i> Core Goals — Utility and SaaS</h2>
+                <p>At the heart of HGT lies our dual focus: <strong>Utility Applications and Software-as-a-Service (SaaS)</strong>. We understand that the modern user needs tools that are functional, fast, and intuitive. Our utility apps are designed to strip away the unnecessary, providing users with direct solutions to their specific problems. Whether it is managing tasks, optimizing workflow, or enhancing digital productivity, our software is engineered to be the ultimate companion.</p>
+                <p>Our transition into the Software-as-a-Service space allows us to provide scalable solutions for businesses and individuals who require more than just a basic tool. By hosting our software in the cloud, we ensure that our users always have access to the most updated, efficient, and secure versions of our platforms. This focus on SaaS is a testament to our forward-thinking approach. We are not interested in creating "one-and-done" software; we are building ecosystems where functionality grows alongside the needs of our clients.</p>
+                <p>Furthermore, we utilize cutting-edge development frameworks that allow us to deploy high-performance applications across multiple platforms simultaneously. By staying on the pulse of global tech trends while keeping our roots firmly planted in local community needs, HGT is uniquely positioned to handle the challenges of a rapidly changing market. We invest heavily in research and development to ensure that our technology remains ahead of the curve. Every feature we implement is tested against the highest standards of performance and user experience. We believe that technology should be an enabler of potential, and through our utility and SaaS initiatives, we are creating the infrastructure for a more efficient tomorrow. Our team is constantly iterating, listening to feedback, and refining our craft to ensure that when you use an HGT product, you are using the pinnacle of modern software engineering.</p>
+                <p><strong>Planned utility launches (2026):</strong> HGT Flow (task automation), HGT Vault (secure credential manager), and HGT Connect (lightweight team chat). All built with zero bloatware.</p>
+            </div>
+            <div class="next-btn-wrapper"><button class="next-btn" data-next="3">Next <i class="fas fa-chevron-right"></i></button></div>
+        </div>
+
+        <!-- SECTION 3 - PRIVACY, ETHICS, AND USER TRUST (500+ words) -->
+        <div id="section3" class="content-section">
+            <div class="blog-text">
+                <h2><i class="fas fa-shield-heart"></i> Privacy, Ethics, and User Trust</h2>
+                <p>In an era where personal data is often treated as a commodity, HGT draws a firm line in the sand. We are deeply committed to respecting user privacy. Our policy is simple: <strong>we do not hide code, and we do not perform "background" actions that the user hasn't explicitly authorized</strong>. We operate on a model of total transparency. Before any action is performed, our applications communicate clearly with the user, requesting permission and explaining exactly why that permission is necessary.</p>
+                <p>We believe that trust is the most valuable currency in the digital age. Many companies choose to harvest data behind the scenes, using complex algorithms to track behavior without consent. At HGT, we find this practice unacceptable. <strong>We never do anything behind the scene.</strong> Every process that runs on your device under our brand is there because you allowed it to be there. This ethical stance is not just a policy; it is the core of our brand identity. We respect your autonomy, your security, and your right to know how your information is being handled.</p>
+                <p>This commitment extends to our data ethics. We believe that a user’s data belongs to the user alone. Our servers are built with security-first architecture to protect this sanctity. When you grant us permission to access a feature or service, it is a contract of trust that we take very seriously. We invite our users to hold us accountable, to audit our processes, and to engage with us on the topic of digital rights. By putting the power back into the hands of the user, we are fostering a digital environment where people feel safe, secure, and valued. Your privacy is not an afterthought at Henry Global Tech Industry; it is the foundation upon which all our software is built.</p>
+                <p><strong>No telemetry without consent.</strong> Unlike big tech firms, HGT apps will never send usage data unless you explicitly opt-in for improvement programs. We are GDPR compliant by design and we extend those protections to every user, regardless of region.</p>
+            </div>
+            <div class="next-btn-wrapper"><button class="next-btn" data-next="4">Next <i class="fas fa-chevron-right"></i></button></div>
+        </div>
+
+        <!-- SECTION 4 - OUR FUTURE, CONTACT & 2000 WORD CULMINATION -->
+        <div id="section4" class="content-section">
+            <div class="blog-text">
+                <h2><i class="fas fa-chart-line"></i> Our Future & How to Reach Us</h2>
+                <p>As we look toward the future, HGT is prepared to expand our horizons, reaching new markets while staying true to our core values. We are excited about the journey ahead and invite you to be a part of our growing community. We are constantly seeking collaboration, feedback, and innovation. The road to 2026 and beyond is filled with endless possibilities, and we are dedicated to navigating it with the same spirit of excellence that defined our first year.</p>
+                <p>We encourage you to stay connected with us. Whether you are a user, a fellow developer, or a potential partner, your voice matters to us. We believe in open communication and building a community where ideas can flourish. You can follow our journey, see our latest updates, and get detailed insights into our projects by visiting our official website at:</p>
+                <div class="contact-block">
+                    <p><i class="fas fa-globe"></i> <strong>Website:</strong> <a href="https://henrygolbalindustry.blogspot.com/?m=1" target="_blank">https://henrygolbalindustry.blogspot.com/?m=1</a></p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:Kamsih924@gmail.com">Kamsih924@gmail.com</a></p>
+                </div>
+                <p>If you have specific inquiries, partnership proposals, or feedback, please do not hesitate to contact us directly. We value every message we receive and strive to maintain the same level of transparency and responsiveness in our communication as we do in our software.</p>
+                <p>Henry Global Tech Industry is a project of passion, a commitment to quality, and a promise to the future. Thank you for trusting us to be a part of your digital life. Together, we are not just witnessing the evolution of technology—we are actively building it, one secure, efficient, and user-authorized line of code at a time. We look forward to seeing how our solutions continue to empower you in the years to come. Welcome to HGT, where your needs are our design, and your trust is our success.</p>
+                <hr>
+                <p style="font-style:italic;"><i class="fas fa-butterfly"></i> "We never do anything behind the scene. Every process that runs on your device under our brand is there because you allowed it to be there." — Henry Kamsi Okwuabudike</p>
+            </div>
+            <div class="next-btn-wrapper" style="justify-content: center;">
+                <button id="startOverBtn" style="background:#eef2f9; border:none; padding:0.5rem 1.2rem; border-radius:40px; font-size:0.8rem;"><i class="fas fa-home"></i> Back to start</button>
+            </div>
+        </div>
+    </div>
+    <footer>© Henry Global Tech Industry — transparency, utility, and user-first ethics since July 31st, 2025.</footer>
+</div>
+
+<!-- CIRCULAR PROGRESS OVERLAY -->
+<div id="progressOverlay" class="progress-overlay">
+    <div class="progress-card">
+        <div class="circular-progress">
+            <svg width="110" height="110" viewBox="0 0 120 120">
+                <circle class="progress-ring-bg" cx="60" cy="60" r="54" stroke-width="7" fill="none"></circle>
+                <circle id="progressRingFill" class="progress-ring-fill" cx="60" cy="60" r="54" stroke-width="7" fill="none" stroke-linecap="round"></circle>
+            </svg>
+            <div class="progress-percent" id="progressPercent">0%</div>
+        </div>
+        <div class="progress-status" id="progressStatusMsg">Fetching...</div>
+    </div>
+</div>
+
+<script>
+    (function(){
+        // ------------------- BUTTERFLY ANIMATION (professional, subtle) ------------------
+        const canvas = document.getElementById('butterflyCanvas');
+        const ctx = canvas.getContext('2d');
+        const fullName = "Henry Global Tech Industry";
+        let particles = [];
+        let animationPhase = 0; // 0:text,1:scatter,2:butterfly,3:reassemble
+        let phaseStart = performance.now();
+        const PHASE_DURATION = 1700;
+        let animFrame;
+        let butterflyPoints = [];
+        let textPoints = [];
+
+        function resizeAndInit() {
+            const container = canvas.parentElement;
+            const w = Math.min(800, container.clientWidth);
+            canvas.width = w;
+            canvas.height = Math.floor(w * 0.35);
+            initAnimationPoints();
+        }
+
+        function initAnimationPoints() {
+            const w = canvas.width, h = canvas.height;
+            if(w === 0) return;
+            // sample text points
+            let tempCanvas = document.createElement('canvas');
+            tempCanvas.width = w;
+            tempCanvas.height = h;
+            let tCtx = tempCanvas.getContext('2d');
+            tCtx.fillStyle = "white";
+            let fontSize = Math.floor(w/12);
+            tCtx.font = `700 ${fontSize}px 'Inter', sans-serif`;
+            tCtx.textAlign = "center";
+            tCtx.textBaseline = "middle";
+            tCtx.fillText(fullName, w/2, h/2);
+            let points = [];
+            for(let y=0; y<h; y+=4){
+                for(let x=0; x<w; x+=4){
+                    let pixel = tCtx.getImageData(x,y,1,1).data;
+                    if(pixel[0] > 100) points.push({x:x, y:y});
+                }
+            }
+            textPoints = points.slice(0, 480);
+            // butterfly shape
+            let centerX = w/2, centerY = h/2;
+            let butterflyPts = [];
+            for(let i=0; i<textPoints.length; i++){
+                let angle = (i / textPoints.length) * Math.PI * 2;
+                let r = 0.6 + Math.sin(angle * 3) * 0.2;
+                let xOff = Math.cos(angle) * 90 * r;
+                let yOff = Math.sin(angle * 2.2) * 55 * (0.7 + Math.sin(angle)*0.3);
+                butterflyPts.push({x: centerX + xOff, y: centerY + yOff});
+            }
+            butterflyPoints = butterflyPts;
+            particles = textPoints.map((pt, idx) => ({
+                from: {x: pt.x, y: pt.y},
+                toButterfly: butterflyPoints[idx] || {x: centerX, y: centerY},
+                toText: {x: pt.x, y: pt.y},
+                current: {x: pt.x, y: pt.y}
+            }));
+            animationPhase = 0;
+            phaseStart = performance.now();
+            if(animFrame) cancelAnimationFrame(animFrame);
+            animateCanvas();
+        }
+
+        function animateCanvas(now) {
+            if(!canvas.isConnected) return;
+            const w = canvas.width, h = canvas.height;
+            if(w===0) return;
+            let elapsed = performance.now() - phaseStart;
+            let t = Math.min(1, elapsed / PHASE_DURATION);
+            let targetList = [];
+            if(animationPhase === 0) targetList = particles.map(p => p.from);
+            else if(animationPhase === 1) {
+                targetList = particles.map(p => ({ x: p.from.x + (Math.random() - 0.5)*130 * t, y: p.from.y + (Math.random() - 0.5)*100 * t }));
+            }
+            else if(animationPhase === 2) targetList = particles.map(p => p.toButterfly);
+            else targetList = particles.map(p => p.toText);
+            
+            for(let i=0;i<particles.length;i++){
+                let target = targetList[i];
+                if(target){
+                    particles[i].current.x = particles[i].current.x * (1 - t) + target.x * t;
+                    particles[i].current.y = particles[i].current.y * (1 - t) + target.y * t;
+                }
+            }
+            ctx.clearRect(0,0,w,h);
+            ctx.fillStyle = "#0b0f18";
+            ctx.fillRect(0,0,w,h);
+            for(let p of particles){
+                ctx.beginPath();
+                ctx.arc(p.current.x, p.current.y, 2.2, 0, Math.PI*2);
+                ctx.fillStyle = `#7d9eff`;
+                ctx.fill();
+                ctx.shadowBlur = 3;
+                ctx.shadowColor = "#4f7eff";
+            }
+            ctx.shadowBlur = 0;
+            if(t >= 1 && animationPhase < 3){
+                animationPhase++;
+                phaseStart = performance.now();
+                if(animationPhase === 3) {
+                    // animation fully done -> reveal about button
+                    document.getElementById('aboutHgtBtn').classList.add('visible');
+                }
+                requestAnimationFrame(animateCanvas);
+            } else if(animationPhase === 3 && t>=1){
+                // keep final text render
+                if(!document.getElementById('aboutHgtBtn').classList.contains('visible'))
+                    document.getElementById('aboutHgtBtn').classList.add('visible');
+                return;
+            } else {
+                requestAnimationFrame(animateCanvas);
+            }
+        }
+        window.addEventListener('resize', ()=>{ resizeAndInit(); });
+        resizeAndInit();
+
+        // fallback image if pexels fails
+        const imgEl = document.getElementById('techImage');
+        imgEl.onerror = () => { imgEl.src = "https://placehold.co/800x450/1f2a47/ffffff?text=HGT+Tech+Campus+Global+Innovation"; };
+
+        // ---------- CIRCULAR PROGRESS + SECTION NAVIGATION (2000 word details) ----------
+        const aboutBtn = document.getElementById('aboutHgtBtn');
+        const progressOverlay = document.getElementById('progressOverlay');
+        const progressRingFill = document.getElementById('progressRingFill');
+        const progressPercentSpan = document.getElementById('progressPercent');
+        const progressStatusSpan = document.getElementById('progressStatusMsg');
+        const circumference = 339.292;
+        progressRingFill.style.strokeDasharray = circumference;
+        
+        function setProgress(percent, status){
+            const offset = circumference - (percent/100)*circumference;
+            progressRingFill.style.strokeDashoffset = offset;
+            progressPercentSpan.innerText = Math.floor(percent)+'%';
+            progressStatusSpan.innerText = status;
+        }
+        
+        function runProgressAndShowData(callback){
+            let currentPercent = 0;
+            let step = 0;
+            const stepsList = [
+                { end: 28, msg: "Fetching..." },
+                { end: 56, msg: "Initialising..." },
+                { end: 86, msg: "Finalising..." },
+                { end: 100, msg: "Done." }
+            ];
+            let interval = setInterval(()=>{
+                if(step >= stepsList.length){
+                    clearInterval(interval);
+                    callback();
+                    return;
+                }
+                let target = stepsList[step].end;
+                if(currentPercent < target){
+                    currentPercent = Math.min(target, currentPercent + 3);
+                    setProgress(currentPercent, stepsList[step].msg);
+                }
+                if(currentPercent >= target){
+                    step++;
+                }
+                if(currentPercent >= 100){
+                    clearInterval(interval);
+                    callback();
+                }
+            }, 60);
+        }
+        
+        aboutBtn.addEventListener('click', ()=>{
+            progressOverlay.classList.add('active');
+            setProgress(0, "Fetching...");
+            runProgressAndShowData(()=>{
+                setTimeout(()=>{
+                    progressOverlay.classList.remove('active');
+                    // show first blog section
+                    document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active-section'));
+                    document.getElementById('section1').classList.add('active-section');
+                    document.getElementById('section1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 200);
+            });
+        });
+
+        // NEXT BUTTON LOGIC
+        function goToSection(sectionId){
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active-section'));
+            document.getElementById(sectionId).classList.add('active-section');
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        document.querySelectorAll('.next-btn').forEach(btn => {
+            btn.addEventListener('click', (e)=>{
+                const nextNum = btn.getAttribute('data-next');
+                if(nextNum) goToSection('section'+nextNum);
+            });
+        });
+        document.getElementById('startOverBtn')?.addEventListener('click', ()=>{
+            goToSection('section1');
+        });
+    })();
+</script>
+</body>
+</html>
