@@ -243,6 +243,22 @@
         .blog-text li {
             margin: 0.4rem 0;
         }
+        
+        /* Added styling for code blocks */
+        pre {
+            background: #1f2b48;
+            color: #f8fafc;
+            padding: 1rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
         .contact-block {
             background: #f8fafc;
             padding: 1rem 1.4rem;
@@ -338,17 +354,28 @@
                 <p>At the heart of HGT lies our dual focus: <strong>Utility Applications and Software-as-a-Service (SaaS)</strong>. We understand that the modern user needs tools that are functional, fast, and intuitive. Our utility apps are designed to strip away the unnecessary, providing users with direct solutions to their specific problems. Whether it is managing tasks, optimizing workflow, or enhancing digital productivity, our software is engineered to be the ultimate companion.</p>
                 <p>Our transition into the Software-as-a-Service space allows us to provide scalable solutions for businesses and individuals who require more than just a basic tool. By hosting our software in the cloud, we ensure that our users always have access to the most updated, efficient, and secure versions of our platforms. This focus on SaaS is a testament to our forward-thinking approach. We are not interested in creating "one-and-done" software; we are building ecosystems where functionality grows alongside the needs of our clients.</p>
                 <p>Furthermore, we utilize cutting-edge development frameworks that allow us to deploy high-performance applications across multiple platforms simultaneously. By staying on the pulse of global tech trends while keeping our roots firmly planted in local community needs, HGT is uniquely positioned to handle the challenges of a rapidly changing market. We invest heavily in research and development to ensure that our technology remains ahead of the curve. Every feature we implement is tested against the highest standards of performance and user experience. We believe that technology should be an enabler of potential, and through our utility and SaaS initiatives, we are creating the infrastructure for a more efficient tomorrow. Our team is constantly iterating, listening to feedback, and refining our craft to ensure that when you use an HGT product, you are using the pinnacle of modern software engineering.</p>
-                <p><strong>Planned utility launches (2026):</strong> HGT Flow (task automation), HGT Vault (secure credential manager), and HGT Connect (lightweight team chat). All built with zero bloatware .New launch of security against both or malicious website:HENRY GLOBAL CEO-HENRY KAMSI OKWUABUDIKE,spent Alot Of effort Developing A security GateKeepper To Not Just Their Apps Or Website,But To Provide A Security Gatekeepper For website/webapp,Andriod App And IOS (SWIFT) To Br Able To Integrate Free Of Charge.It Is open source meaning you don't need an API key or a backend configuration you just need to paste it in the in the head on your website head most pasted the code will initialize by itself within a milliseconds and show a security gateway for the web app the web app is classified the security layer code is three the gatekeeper the Gatekeeper job is to make sure that you verify your that you are a human you verified that you are a human not a robot before you can even see the content of the website now the next one is sign up gatekeeper this protect the developers website from getting field up with both that is signing up now the login gatekeeper to help developer secure the login section this is the three Gate keepers. the security gatekeeper for the web three, the first one is first launch goalkeeper the code for the first launch gatekeeper for developers integrate:1. The Gatekeeper (First Redirect)
-Locks the entire page until the human user passes the security check.INTEGRATION CODE:<!DOCTYPE html>
-<html>
-<head>
-    <!-- Hides body entirely -->
-    <style> body { display: none; } </style>
-    <script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"></script>
-</head>
-<body>
-    <div id="protected-content">Your Website Content Here</div>
-    <script>
+                
+                <p><strong>Planned utility launches (2026):</strong> HGT Flow (task automation), HGT Vault (secure credential manager), and HGT Connect (lightweight team chat). All built with zero bloatware.</p>
+                
+                <p>New launch of security against bots or malicious websites: HENRY GLOBAL CEO - HENRY KAMSI OKWUABUDIKE, spent a lot of effort developing a Security GateKeepper to not just protect their apps or website, but to provide a Security Gatekeeper for websites/web apps, Android Apps, and iOS (SWIFT) to be able to integrate free of charge.</p>
+                
+                <p>It is open source meaning you don't need an API key or a backend configuration. You just need to paste it in the head of your website. Once pasted, the code will initialize by itself within a milliseconds and show a security gateway for the web app. The security layer code is three gatekeepers. The Gatekeeper's job is to verify that you are a human, not a robot, before you can even see the content of the website. The next one is the sign-up gatekeeper. This protects the developers website from getting filled up with bots that are signing up. Finally, the login gatekeeper helps developers secure the login section.</p>
+
+                <p>These are the three Gate keepers for the web:</p>
+
+                <h3>1. The Gatekeeper (First Redirect)</h3>
+                <p>Locks the entire page until the human user passes the security check.</p>
+                <p><strong>INTEGRATION CODE:</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;!-- Hides body entirely --&gt;
+    &lt;style&gt; body { display: none; } &lt;/style&gt;
+    &lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="protected-content"&gt;Your Website Content Here&lt;/div&gt;
+    &lt;script&gt;
         window.addEventListener('load', function() {
             HGT_Guardian.init({
                 brand: 'Your Brand',
@@ -358,17 +385,21 @@ Locks the entire page until the human user passes the security check.INTEGRATION
                 }
             });
         });
-    </script>
-</body>
-</html>.2. Secure Login
-Reveals the login form only after verification to prevent bot brute-forcing.INTEGRATION CODE:<div id="hgt-login-form" style="display:none;">
-    <h3>Login</h3>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
-</div>
-<script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"></script>
-<script>
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <h3>2. Secure Login</h3>
+                <p>Reveals the login form only after verification to prevent bot brute-forcing.</p>
+                <p><strong>INTEGRATION CODE:</strong></p>
+<pre><code>&lt;div id="hgt-login-form" style="display:none;"&gt;
+    &lt;h3&gt;Login&lt;/h3&gt;
+    &lt;input type="email" placeholder="Email"&gt;
+    &lt;input type="password" placeholder="Password"&gt;
+    &lt;button&gt;Login&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
+&lt;script&gt;
     window.addEventListener('load', function() {
         HGT_Guardian.init({ 
             onSuccess: function() {
@@ -376,18 +407,22 @@ Reveals the login form only after verification to prevent bot brute-forcing.INTE
             }
         });
     });
-</script>3. Secure Sign Up
-Ensures only real humans can create accounts. Stops bot spam completely.INTEGRATION CODE:<div id="hgt-signup-form" style="display:none;">
-    <h3>Create Account</h3>
-    <input type="text" placeholder="First Name">
-    <input type="text" placeholder="Last Name">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <input type="password" placeholder="Confirm Password">
-    <button>Sign Up</button>
-</div>
-<script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"></script>
-<script>
+&lt;/script&gt;</code></pre>
+
+                <h3>3. Secure Sign Up</h3>
+                <p>Ensures only real humans can create accounts. Stops bot spam completely.</p>
+                <p><strong>INTEGRATION CODE:</strong></p>
+<pre><code>&lt;div id="hgt-signup-form" style="display:none;"&gt;
+    &lt;h3&gt;Create Account&lt;/h3&gt;
+    &lt;input type="text" placeholder="First Name"&gt;
+    &lt;input type="text" placeholder="Last Name"&gt;
+    &lt;input type="email" placeholder="Email"&gt;
+    &lt;input type="password" placeholder="Password"&gt;
+    &lt;input type="password" placeholder="Confirm Password"&gt;
+    &lt;button&gt;Sign Up&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
+&lt;script&gt;
     window.addEventListener('load', function() {
         HGT_Guardian.init({ 
             onSuccess: function() {
@@ -395,46 +430,31 @@ Ensures only real humans can create accounts. Stops bot spam completely.INTEGRAT
             }
         });
     });
-</script>4. The Combined Master Architecture
-One security check unlocks multiple views simultaneously (Single Page Architecture INTEGRATION CODE:<div id="hgt-signup-form" style="display:none;">
-    <h3>Create Account</h3>
-    <input type="text" placeholder="First Name">
-    <input type="text" placeholder="Last Name">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <input type="password" placeholder="Confirm Password">
-    <button>Sign Up</button>
-</div>
-<script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"></script>
-<script>
-    window.addEventListener('load', function() {
-        HGT_Guardian.init({ 
-            onSuccess: function() {
-                document.getElementById('hgt-signup-form').style.display = 'block';
-            }
-        });
-    });
-</script>4. The Combined Master Architecture
-One security check unlocks multiple views simultaneously (Single Page Architecture,THIS ALL THE COMBINED SECURITY GATEKEEPPER.INTEGRATION CODE:<style> .hgt-secure-zone { display: none; } </style>
+&lt;/script&gt;</code></pre>
 
-<!-- Protected Views -->
-<div id="home-view" class="hgt-secure-zone">Welcome to the App</div>
-<div id="login-view" class="hgt-secure-zone"><input type="email"><button>Login</button></div>
-<div id="signup-view" class="hgt-secure-zone"><input type="text"><button>Sign Up</button></div>
+                <h3>4. The Combined Master Architecture</h3>
+                <p>One security check unlocks multiple views simultaneously (Single Page Architecture). THIS IS ALL THE COMBINED SECURITY GATEKEEPER.</p>
+                <p><strong>INTEGRATION CODE:</strong></p>
+<pre><code>&lt;style&gt; .hgt-secure-zone { display: none; } &lt;/style&gt;
 
-<script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"></script>
-<script>
+&lt;!-- Protected Views --&gt;
+&lt;div id="home-view" class="hgt-secure-zone"&gt;Welcome to the App&lt;/div&gt;
+&lt;div id="login-view" class="hgt-secure-zone"&gt;&lt;input type="email"&gt;&lt;button&gt;Login&lt;/button&gt;&lt;/div&gt;
+&lt;div id="signup-view" class="hgt-secure-zone"&gt;&lt;input type="text"&gt;&lt;button&gt;Sign Up&lt;/button&gt;&lt;/div&gt;
+
+&lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
+&lt;script&gt;
     window.addEventListener('load', function() {
         HGT_Guardian.init({
             brand: 'HGT Unified System',
             onSuccess: function() {
                 // Instantly unlock all secure zones
                 let zones = document.querySelectorAll('.hgt-secure-zone');
-                zones.forEach(zone => zone.style.display = 'block');
+                zones.forEach(zone =&gt; zone.style.display = 'block');
             }
         });
     });
-</script></p>
+&lt;/script&gt;</code></pre>
             </div>
             <div class="next-btn-wrapper"><button class="next-btn" data-next="3">Next <i class="fas fa-chevron-right"></i></button></div>
         </div>
@@ -690,4 +710,4 @@ One security check unlocks multiple views simultaneously (Single Page Architectu
     })();
 </script>
 </body>
-    </html>
+</html>
