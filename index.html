@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "735e33d5-6017-42c6-b59a-1e643abe3175",
+    });
+  });
+</script>
     <script type="module" src="https://henrykamsi.github.io/HDPA-compliance.com/h-widget.js"></script>
     <meta name="google-site-verification" content="ZxvYybyg9963-ltKszRxcviAPkYag5UuGqjlJLMqtww" />
     <meta charset="UTF-8">
