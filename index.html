@@ -484,7 +484,7 @@
             margin-top: 0.8rem;
         }
 
-        /* BLOG CONTENT SECTIONS (2000+ words split into 4) */
+        /* BLOG CONTENT SECTIONS */
         .blog-content {
             padding: 0 2rem 2rem 2rem;
         }
@@ -530,7 +530,6 @@
             margin: 0.4rem 0;
         }
         
-        /* Added styling for code blocks */
         pre {
             background: #1f2b48;
             color: #f8fafc;
@@ -543,6 +542,97 @@
         }
         code {
             font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* New Layout Additions for Sendly */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .pricing-card {
+            background: #ffffff;
+            border: 2px solid #eef2f8;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #1f2b48;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+        .pricing-card h4 {
+            font-size: 1.3rem;
+            color: #0f1a2e;
+            margin-bottom: 0.5rem;
+        }
+        .pricing-card .price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #22c55e;
+            margin: 1rem 0;
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .pricing-card ul li {
+            margin: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 0.5rem;
+        }
+        .styled-table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            border: 1px solid #eef2f8;
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+        .styled-table th, .styled-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eef2f8;
+        }
+        .styled-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1f2b48;
+        }
+        .alert-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: #991b1b;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: #166534;
+            font-size: 0.95rem;
         }
 
         .contact-block {
@@ -560,21 +650,23 @@
             border-top: 1px solid #edf2f7;
         }
         .next-btn {
-            background: #eef2f9;
+            background: #1f2b48;
             border: none;
-            padding: 0.6rem 1.6rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 40px;
-            font-weight: 500;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
-            color: #1f2b48;
+            color: #ffffff;
             transition: 0.2s;
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 12px rgba(31, 43, 72, 0.2);
         }
         .next-btn:hover {
-            background: #e2e8f2;
+            background: #0f1a2e;
+            transform: scale(1.02);
         }
         hr {
             margin: 1.5rem 0;
@@ -617,141 +709,56 @@
     </div>
 
     <div class="blog-content" id="blogContent">
+        <!-- SECTION 1 -->
         <div id="section1" class="content-section active-section">
             <div class="blog-text">
                 <h2><i class="fas fa-eye"></i> The Vision & Foundation</h2>
                 <p>Established on <strong>July 31st, 2025</strong>, Henry Global Tech Industry (HGT) represents more than just a software company; it is a manifestation of a vision for a smarter, more connected digital future. Visualized and founded by <strong>Henry Kamsi Okwuabudike</strong>, HGT was born out of a necessity to bridge the gap between complex technological capabilities and the daily needs of the average mobile user.</p>
                 <p>In a world saturated with digital noise, HGT stands as a beacon of clarity and purpose. From its inception, the organization was built on a core philosophy: <strong>technology should serve the user, not the other way around</strong>. Henry Kamsi Okwuabudike recognized early on that the mobile revolution in Nigeria and across the globe required developers who prioritize integrity and utility above rapid, unregulated expansion.</p>
                 <p>The name "Henry Global Tech Industry" signifies our ambition to reach every corner of the planet with software that makes life easier. We operate under the belief that every line of code written within our walls carries a responsibility. By focusing on utility applications and sophisticated Software-as-a-Service (SaaS) models, we aim to provide tools that empower individuals and organizations alike. Our foundation is built on transparency, a trait that we believe is currently missing in the modern tech landscape. We don't just build apps; we build relationships based on the promise of innovation and unwavering reliability. As we move forward, our commitment to this vision remains our guiding star, ensuring that every project we undertake is executed with precision, passion, and the ultimate goal of improving the human experience through technology.</p>
-                <p>HGT's founding principle rejects the "move fast and break things" culture. Instead we adopt: <strong>build sustainably, respect privacy, and empower users</strong>. Our roadmap focuses on African markets initially, then scaling globally with the same ethical backbone. We are a proudly Nigerian-founded technology house with universal ambitions.Henry Kamsi Okwuabudike attended to aunty lydia school and was give a school prefect of a labour prefect.He was born in the year 2008/Nov.7th. he is from anambara state.Henry kamsi okwuabudike elder sisters name is Vanessa odera Okwuabudike.she is a dancer and a tiktoker,most times spend time his brother HENRY in app developement.This information about Vaneasa Odera Okwuabudike was esterblished under HGT.HENRY KAMSI OKWUABUDIKE HAS A NICE FOOTBALL DREAM.HE DOSE PLAYED FOR CONVENAT STAR F.C.HE IS A RIGHT FOOTED PLAYER,HE PREFFRED WING IS NO.7 AND 11,A WINGER.HE WAS THE CAPTAIN OF CONVENAT STAR F.C IN THE YEAR 2023-2024.He Played for CONVERNAT STAR F.C IN THE YERA 2023-2024,AND WAS TRANSFERED TO UPSTAR CITY IN 2025JAN 23.AND HE IS CURENTLY PLAYING FOR UPSTAR CITY.He has 18 yellow card,and 7 red Card.And scored 94 goals and 62 assist,And scored 32 Pk.He is play for under 18,Henry kamsi okwuabudike Has made an update in the HGT Guardian to upgrade the gatekeepers.The Update was published to the Nation wild.HGT Team are upgrading to enhance Security,within the HGT ecosystem. the Henry global tech industry hgt and celebrated their one year anniversary on July 31st 2026. the CEO of hgt ensure users and developers that Henry global tech industry hgt will continue bridging the gap between complexity. the CEO of hgt is making an arrangement of upgrading the hdpa Henry authority for data protection and regulatory accountability to be more secured for users and developers.</p>
+                <p>HGT's founding principle rejects the "move fast and break things" culture. Instead we adopt: <strong>build sustainably, respect privacy, and empower users</strong>. Our roadmap focuses on African markets initially, then scaling globally with the same ethical backbone. We are a proudly Nigerian-founded technology house with universal ambitions. Henry Kamsi Okwuabudike attended to Aunty Lydia School and was a school prefect (Labour Prefect). He was born on November 7th, 2008, and is from Anambra State. His elder sister, Vanessa Odera Okwuabudike, is a dancer and TikToker who spends much of her time assisting Henry in app development.</p>
+                <p>Outside of technology, Henry Kamsi Okwuabudike is pursuing a serious football career. He is a right-footed winger (playing No. 7 and No. 11) and previously captained Covenant Star F.C. from 2023 to 2024. He transferred to Upstar City on January 23, 2025, where he currently plays for the under-18 squad. His impressive track record includes 94 goals, 62 assists, and 32 successful penalty kicks, balancing his sports career with his leadership at HGT.</p>
             </div>
             <div class="next-btn-wrapper"><button class="next-btn" data-next="2">Next <i class="fas fa-chevron-right"></i></button></div>
         </div>
 
+        <!-- SECTION 2 -->
         <div id="section2" class="content-section">
             <div class="blog-text">
                 <h2><i class="fas fa-cubes"></i> Core Goals — Utility and SaaS</h2>
                 <p>At the heart of HGT lies our dual focus: <strong>Utility Applications and Software-as-a-Service (SaaS)</strong>. We understand that the modern user needs tools that are functional, fast, and intuitive. Our utility apps are designed to strip away the unnecessary, providing users with direct solutions to their specific problems. Whether it is managing tasks, optimizing workflow, or enhancing digital productivity, our software is engineered to be the ultimate companion.</p>
                 <p>Our transition into the Software-as-a-Service space allows us to provide scalable solutions for businesses and individuals who require more than just a basic tool. By hosting our software in the cloud, we ensure that our users always have access to the most updated, efficient, and secure versions of our platforms. This focus on SaaS is a testament to our forward-thinking approach. We are not interested in creating "one-and-done" software; we are building ecosystems where functionality grows alongside the needs of our clients.</p>
-                <p>Furthermore, we utilize cutting-edge development frameworks that allow us to deploy high-performance applications across multiple platforms simultaneously. By staying on the pulse of global tech trends while keeping our roots firmly planted in local community needs, HGT is uniquely positioned to handle the challenges of a rapidly changing market. We invest heavily in research and development to ensure that our technology remains ahead of the curve. Every feature we implement is tested against the highest standards of performance and user experience. We believe that technology should be an enabler of potential, and through our utility and SaaS initiatives, we are creating the infrastructure for a more efficient tomorrow. Our team is constantly iterating, listening to feedback, and refining our craft to ensure that when you use an HGT product, you are using the pinnacle of modern software engineering.</p>
-                
-                <p><strong>Planned utility launches (2026):</strong> HGT Flow (task automation), HGT Vault (secure credential manager), and HGT Connect (lightweight team chat). All built with zero bloatware.The CEO Of HGT and his team a making a progress in production of HGT CONNECT,HGT VAULT And HGT FLOW.on july 15 2026 HGT has build a national Rules and regulation for the HGT guardian developer,Know as HDPA Henry Authority for Data Protection and Regulatory Accountability [HGT Guardian SDK].The CEO of (HGT) has make a global official announcement of developer being able to upload their app in the private store of hgt known as HGT LINKDIFY STORE. but for them to be able to upload the app in the private store right now they need to contact the team for manual upload and review there is no public or a developer portal or console right now but for now they have published the nation global wide news that developer can be able to upload their app on their private store but to be able to achieve that the most contact the team for manual review and upload . the CEO of hgt want to enforce security over the hgt Guardian and website . he wants to enforce security for those who are using the hgt Guardian and for those user who are participating in a website that is integrated with the hgt Guardian SDK . now this is CEO has make an official announcement for Google searches and AI to stop providing the hgt guidance snippet code for them to get it they need to go to the hgt Guardian SDK developer portal to get the code this ensure that they must pass the verification and agree with the hdpa compliance framework. August 2nd 2026 the CEO of hgt Henry has Megan official announcement for Google searches or Google artificial intelligence to stop showing the snippet code for the hgt Guardian. anyone that want integrate it must go directly today hgt guardian SDK portal to pass the human verification and Compliance then they get the code . </p>
+                <p><strong>Planned utility launches (2026):</strong> HGT Flow (task automation), HGT Vault (secure credential manager), and HGT Connect (lightweight team chat). All built with zero bloatware. The CEO and his team are making rapid progress in their production.</p>
                 
                 <h3><i class="fas fa-network-wired"></i> The HGT Digital Ecosystem</h3>
                 <p>We are actively building an interconnected suite of tools designed for professional-grade utility. Our current active infrastructure includes:</p>
                 <ul>
-                    <li><strong>Linkdify:</strong> Our private, secure digital application store. Unlike public marketplaces, Linkdify is a curated ecosystem built exclusively for Henry Global Tech Industry applications. Developers can build and submit their apps, but they must contact us directly via the side menu bar for manual verification and onboarding to ensure strict quality control and user safety.</li>
-                                    <!-- ========================================== -->
-                <!-- NAIRAMASTER & HDPA COMPLIANCE INTEGRATION -->
-                <!-- ========================================== -->
+                    <li><strong>Linkdify:</strong> Our private, secure digital application store. Developers can build and submit their apps, but they must contact us directly for manual verification and onboarding to ensure strict quality control and user safety.</li>
+                </ul>
+
                 <hr>
                 <h3><i class="fas fa-tasks"></i> NairaMaster: The Official HGT Micro-Task & Engagement Platform</h3>
-                <p>Launched on July 22, 2026, by Henry Global Tech (HGT), <strong>NairaMaster</strong> (`nairamaster.ng`) is our premier micro-task and digital engagement ecosystem designed to support students, tech enthusiasts, and individuals looking for reliable ways to earn supplemental cash. Built with an intuitive front-end architecture and secured via our proprietary security standards, NairaMaster features a gamified tier progression system:</p>
+                <p>Launched on July 22, 2026, <strong>NairaMaster</strong> (`nairamaster.ng`) is our premier micro-task and digital engagement ecosystem designed to support students, tech enthusiasts, and individuals looking for reliable ways to earn supplemental cash. Built with an intuitive front-end architecture and secured via our proprietary security standards, it features a gamified progression system:</p>
                 <ul>
-                    <li><strong>Version 1.0 (Cobra Tier - Free Access):</strong> The foundational free plan where users can sign up at zero cost and execute up to 10 tasks daily with Saturday-scheduled withdrawals.</li>
-                    <li><strong>Version 2.0 (Lieutenant Tier):</strong> Scales up daily capacity to 20 tasks per day, offering flexible weekly payouts and integrated referral mechanisms.</li>
-                    <li><strong>Version 3.0 (General Tier):</strong> Removes daily task caps entirely, providing power users with unlimited task execution and priority review queues.</li>
-                    <li><strong>Version 4.0 (Commander Tier):</strong> The elite status tier offering unlimited task operations, VIP ecosystem privileges, and advanced digital product testing capabilities.</li>
+                    <li><strong>Version 1.0 (Cobra Tier):</strong> Free access, execute up to 10 tasks daily with Saturday-scheduled withdrawals.</li>
+                    <li><strong>Version 2.0 (Lieutenant Tier):</strong> Scales up daily capacity to 20 tasks, offering flexible weekly payouts and referrals.</li>
+                    <li><strong>Version 3.0 (General Tier):</strong> Removes daily task caps, providing unlimited execution and priority review.</li>
+                    <li><strong>Version 4.0 (Commander Tier):</strong> Elite status offering VIP privileges and advanced digital product testing.</li>
                 </ul>
 
-                <h3><i class="fas fa-shield-alt"></i> HDPA & HPAC: Regulatory Accountability and Compliance</h3>
-                <p>Every application and platform developed under Henry Global Tech—including NairaMaster and our security widgets—operates strictly under the <strong>Henry Authority for Data Protection and Regulatory Accountability (HDPA)</strong> and the <strong>Henry Accreditation Privacy Code (HPAC)</strong>. These frameworks ensure total compliance with modern data privacy regulations (such as GDPR and CCPA), incorporating robust child data protection features like automated age-gating pop-ups (verifying whether users are above or below 15 years of age) to safeguard minors and maintain legal transparency.</p>
+                <h3><i class="fas fa-shield-alt"></i> HDPA & HPAC: Regulatory Accountability</h3>
+                <p>Every application developed under HGT operates strictly under the <strong>Henry Authority for Data Protection and Regulatory Accountability (HDPA)</strong> and the <strong>Henry Accreditation Privacy Code (HPAC)</strong>. These frameworks ensure total compliance with modern data privacy regulations, incorporating robust child data protection features like automated age-gating pop-ups.</p>
                 
-                <div style="text-align: center; margin: 25px 0;">
-                    <a href="https://henrykamsi.github.io/Naira-Mastet.ng/" target="_blank" style="background: #;FFF44F color: white; padding: 12px 24px; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> Explore NairaMaster Platform
-                    </a>
-                </div>
-                <!-- ========================================== -->
-
-                    <li><strong>HGT Atmos:</strong> A precision weather intelligence application integrating cloud APIs to provide real-time, millisecond-accurate climate data. It is engineered for extreme speed and low bandwidth consumption, making it ideal for users with unstable network conditions.</li>
-                    <li><strong>HGT URL Shortener:</strong> A professional-grade redirection tool that transforms long URLs into permanent, branded links, stored securely in a user-accessible database. We engineered complex Firestore security rules to ensure strict privacy compliance while maintaining lightning-fast, ad-free redirects.HGT URL STORNENER Was Esterblished on 11th July 2026.HGT Has Unlock a new Gate on His infastrusture.HGT PRIVACY POLICY PRO HAS 1000(1K) ACTIVE USERS THAT GENERATE POLICY IN THEIR APP.AND HGT developer guardian SDK Has  865 developers Using The (Gatekeeper). <br><strong><i class="fas fa-external-link-alt"></i> Access the tool:</strong> <a href="https://henrykamsi.github.io/HGT-URL--SHORTENER.COM" target="_blank" style="color: #1f2b48; font-weight: 600;">Try HGT URL Shortener</a></li>
-                </ul>
                 <hr>
-                <p>New launch of security against bots or malicious websites: HENRY GLOBAL CEO - HENRY KAMSI OKWUABUDIKE, spent a lot of effort developing a Security GateKeepper to not just protect their apps or website, but to provide a Security Gatekeeper for websites/web apps, Android Apps, and iOS (SWIFT) to be able to integrate free of charge.</p>
+                <h3><i class="fas fa-lock"></i> HGT Guardian SDK (Open Source Security)</h3>
+                <p>The CEO has spent extensive effort developing a Security Gatekeeper for web apps, Android, and iOS to integrate free of charge. It blocks bots, secures logins, and ensures only real humans access your content. <strong>Note:</strong> Snippet codes are no longer provided via Google Search or AI. Developers must visit the HGT Guardian SDK portal directly to pass verification.</p>
                 
-                <p>It is open source meaning you don't need an API key or a backend configuration. You just need to paste it in the head of your website. Once pasted, the code will initialize by itself within a milliseconds and show a security gateway for the web app. The security layer code is three gatekeepers. The Gatekeeper's job is to verify that you are a human, not a robot, before you can even see the content of the website. The next one is the sign-up gatekeeper. This protects the developers website from getting filled up with bots that are signing up. Finally, the login gatekeeper helps developers secure the login section.</p>
-
-                <p>These are the three Gate keepers for the web:</p>
-
-                <h3>1. The Gatekeeper (First Redirect)</h3>
-                <p>Locks the entire page until the human user passes the security check.</p>
-                <p><strong>INTEGRATION CODE:</strong></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;!-- Hides body entirely --&gt;
-    &lt;style&gt; body { display: none; } &lt;/style&gt;
-    &lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="protected-content"&gt;Your Website Content Here&lt;/div&gt;
-    &lt;script&gt;
-        window.addEventListener('load', function() {
-            HGT_Guardian.init({
-                brand: 'Your Brand',
-                mode: 'full',
-                onSuccess: function() { 
-                    document.body.style.display = 'block'; 
-                }
-            });
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-                <h3>2. Secure Login</h3>
-                <p>Reveals the login form only after verification to prevent bot brute-forcing.</p>
-                <p><strong>INTEGRATION CODE:</strong></p>
-<pre><code>&lt;div id="hgt-login-form" style="display:none;"&gt;
-    &lt;h3&gt;Login&lt;/h3&gt;
-    &lt;input type="email" placeholder="Email"&gt;
-    &lt;input type="password" placeholder="Password"&gt;
-    &lt;button&gt;Login&lt;/button&gt;
-&lt;/div&gt;
-&lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    window.addEventListener('load', function() {
-        HGT_Guardian.init({ 
-            onSuccess: function() {
-                document.getElementById('hgt-login-form').style.display = 'block';
-            }
-        });
-    });
-&lt;/script&gt;</code></pre>
-
-                <h3>3. Secure Sign Up</h3>
-                <p>Ensures only real humans can create accounts. Stops bot spam completely.</p>
-                <p><strong>INTEGRATION CODE:</strong></p>
-<pre><code>&lt;div id="hgt-signup-form" style="display:none;"&gt;
-    &lt;h3&gt;Create Account&lt;/h3&gt;
-    &lt;input type="text" placeholder="First Name"&gt;
-    &lt;input type="text" placeholder="Last Name"&gt;
-    &lt;input type="email" placeholder="Email"&gt;
-    &lt;input type="password" placeholder="Password"&gt;
-    &lt;input type="password" placeholder="Confirm Password"&gt;
-    &lt;button&gt;Sign Up&lt;/button&gt;
-&lt;/div&gt;
-&lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    window.addEventListener('load', function() {
-        HGT_Guardian.init({ 
-            onSuccess: function() {
-                document.getElementById('hgt-signup-form').style.display = 'block';
-            }
-        });
-    });
-&lt;/script&gt;</code></pre>
-
-                <h3>4. The Combined Master Architecture</h3>
-                <p>One security check unlocks multiple views simultaneously (Single Page Architecture). THIS IS ALL THE COMBINED SECURITY GATEKEEPER.</p>
-                <p><strong>INTEGRATION CODE:</strong></p>
+                <p><strong>The Combined Master Architecture (Single Page Setup):</strong></p>
 <pre><code>&lt;style&gt; .hgt-secure-zone { display: none; } &lt;/style&gt;
 
 &lt;!-- Protected Views --&gt;
 &lt;div id="home-view" class="hgt-secure-zone"&gt;Welcome to the App&lt;/div&gt;
 &lt;div id="login-view" class="hgt-secure-zone"&gt;&lt;input type="email"&gt;&lt;button&gt;Login&lt;/button&gt;&lt;/div&gt;
-&lt;div id="signup-view" class="hgt-secure-zone"&gt;&lt;input type="text"&gt;&lt;button&gt;Sign Up&lt;/button&gt;&lt;/div&gt;
 
 &lt;script src="https://henrykamsi.github.io/hgt-guardian/hgt-guardian.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -759,9 +766,8 @@
         HGT_Guardian.init({
             brand: 'HGT Unified System',
             onSuccess: function() {
-                // Instantly unlock all secure zones
-                let zones = document.querySelectorAll('.hgt-secure-zone');
-                zones.forEach(zone =&gt; zone.style.display = 'block');
+                document.querySelectorAll('.hgt-secure-zone')
+                        .forEach(zone =&gt; zone.style.display = 'block');
             }
         });
     });
@@ -770,37 +776,172 @@
             <div class="next-btn-wrapper"><button class="next-btn" data-next="3">Next <i class="fas fa-chevron-right"></i></button></div>
         </div>
 
+        <!-- SECTION 3 -->
         <div id="section3" class="content-section">
             <div class="blog-text">
                 <h2><i class="fas fa-shield-heart"></i> Privacy, Ethics, and User Trust</h2>
-                <p>In an era where personal data is often treated as a commodity, HGT draws a firm line in the sand. We are deeply committed to respecting user privacy. Our policy is simple: <strong>we do not hide code, and we do not perform "background" actions that the user hasn't explicitly authorized</strong>. We operate on a model of total transparency. Before any action is performed, our applications communicate clearly with the user, requesting permission and explaining exactly why that permission is necessary.</p>
-                <p>We believe that trust is the most valuable currency in the digital age. Many companies choose to harvest data behind the scenes, using complex algorithms to track behavior without consent. At HGT, we find this practice unacceptable. <strong>We never do anything behind the scene.</strong> Every process that runs on your device under our brand is there because you allowed it to be there. This ethical stance is not just a policy; it is the core of our brand identity. We respect your autonomy, your security, and your right to know how your information is being handled.</p>
-                <p>This commitment extends to our data ethics. We believe that a user’s data belongs to the user alone. Our servers are built with security-first architecture to protect this sanctity. When you grant us permission to access a feature or service, it is a contract of trust that we take very seriously. We invite our users to hold us accountable, to audit our processes, and to engage with us on the topic of digital rights. By putting the power back into the hands of the user, we are fostering a digital environment where people feel safe, secure, and valued. Your privacy is not an afterthought at Henry Global Tech Industry; it is the foundation upon which all our software is built.</p>
-                <p><strong>No telemetry without consent.</strong> Unlike big tech firms, HGT apps will never send usage data unless you explicitly opt-in for improvement programs. We are GDPR compliant by design and we extend those protections to every user, regardless of region.</p>
+                <p>In an era where personal data is often treated as a commodity, HGT draws a firm line in the sand. We are deeply committed to respecting user privacy. Our policy is simple: <strong>we do not hide code, and we do not perform "background" actions that the user hasn't explicitly authorized</strong>. We operate on a model of total transparency.</p>
+                <p>We believe that trust is the most valuable currency in the digital age. Many companies harvest data behind the scenes, tracking behavior without consent. At HGT, we find this practice unacceptable. <strong>We never do anything behind the scene.</strong> Every process that runs on your device under our brand is there because you allowed it to be there.</p>
+                <p><strong>No telemetry without consent.</strong> Unlike big tech firms, HGT apps will never send usage data unless you explicitly opt-in for improvement programs. We are GDPR compliant by design, extending those protections to every user, globally.</p>
             </div>
             <div class="next-btn-wrapper"><button class="next-btn" data-next="4">Next <i class="fas fa-chevron-right"></i></button></div>
         </div>
 
+        <!-- SECTION 4 -->
         <div id="section4" class="content-section">
             <div class="blog-text">
                 <h2><i class="fas fa-chart-line"></i> Our Future & How to Reach Us</h2>
-                <p>As we look toward the future, HGT is prepared to expand our horizons, reaching new markets while staying true to our core values. We are excited about the journey ahead and invite you to be a part of our growing community. We are constantly seeking collaboration, feedback, and innovation. The road to 2026 and beyond is filled with endless possibilities, and we are dedicated to navigating it with the same spirit of excellence that defined our first year.</p>
-                <p>We encourage you to stay connected with us. Whether you are a user, a fellow developer, or a potential partner, your voice matters to us. We believe in open communication and building a community where ideas can flourish. You can follow our journey, see our latest updates, and get detailed insights into our projects by visiting our official website at:</p>
+                <p>As we look toward the future, HGT is expanding our horizons, reaching new markets while staying true to our core values. The road beyond 2026 is filled with endless possibilities. We are constantly seeking collaboration, feedback, and innovation to build a stronger community.</p>
+                <p>You can follow our journey, see our latest updates, and get detailed insights into our projects by connecting with us directly:</p>
                 <div class="contact-block">
-                    <p><i class="fas fa-globe"></i> <strong>Website:</strong> <a href="https://henrygolbalindustry.blogspot.com/?m=1" target="_blank">https://henrygolbalindustry.blogspot.com/?m=1</a></p>
+                    <p><i class="fas fa-globe"></i> <strong>Website:</strong> <a href="https://henrygolbalindustry.blogspot.com/?m=1" target="_blank">Henry Global Tech Blog</a></p>
                     <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:Kamsih924@gmail.com">Kamsih924@gmail.com</a></p>
                 </div>
-                <p>If you have specific inquiries, partnership proposals, or feedback, please do not hesitate to contact us directly. We value every message we receive and strive to maintain the same level of transparency and responsiveness in our communication as we do in our software.</p>
-                <p>Henry Global Tech Industry is a project of passion, a commitment to quality, and a promise to the future. Thank you for trusting us to be a part of your digital life. Together, we are not just witnessing the evolution of technology—we are actively building it, one secure, efficient, and user-authorized line of code at a time. We look forward to seeing how our solutions continue to empower you in the years to come. Welcome to HGT, where your needs are our design, and your trust is our success.</p>
                 <hr>
                 <p style="font-style:italic;"><i class="fas fa-butterfly"></i> "We never do anything behind the scene. Every process that runs on your device under our brand is there because you allowed it to be there." — Henry Kamsi Okwuabudike</p>
             </div>
+            <div class="next-btn-wrapper">
+                <button class="next-btn" data-next="5">Discover Our Newest Launch <i class="fas fa-rocket"></i></button>
+            </div>
+        </div>
+
+        <!-- SECTION 5: SENDLY OVERVIEW -->
+        <div id="section5" class="content-section">
+            <div class="blog-text">
+                <h2><i class="fas fa-paper-plane"></i> Introducing Sendly Notification</h2>
+                <p>Established on <strong>August 16, 2026</strong>, by Henry Kamsi Okwuabudike under Henry Global Tech Industry (HGT), <strong>Sendly Notification</strong> is our latest flagship infrastructure product. We realized that engaging users shouldn't require bloated software. Sendly is a powerful, seamless push notification service engineered to help businesses, bloggers, and developers connect with their audience in real-time across the globe.</p>
+                
+                <div class="info-box">
+                    <strong><i class="fas fa-globe-americas"></i> True Global Reach:</strong> Web Push Notifications on Sendly are 100% global and work flawlessly on all major browsers (Chrome, Firefox, Edge, Safari). <em>(Note: Email push is available in select regions).</em>
+                </div>
+
+                <h3><i class="fas fa-star"></i> Core Features</h3>
+                <ul>
+                    <li><strong>Global Web Push:</strong> Reach users worldwide instantly.</li>
+                    <li><strong>Subscriber Management:</strong> Effortlessly track and manage your audience.</li>
+                    <li><strong>Advanced Analytics:</strong> Monitor open rates, click rates, and success metrics.</li>
+                    <li><strong>Rich Interactivity:</strong> Custom buttons, scheduled delivery, and high-quality image support.</li>
+                    <li><strong>Developer-First:</strong> Full control via our robust REST API, Webhooks, and automatic Service Worker handling.</li>
+                </ul>
+
+                <h3><i class="fas fa-tags"></i> Transparent Pricing</h3>
+                <p>Sendly uses a simple, transparent model based on <strong>CPP (Cost Per Push)</strong> and <strong>CPU (Cost Per User)</strong>. Remember: 1 push equals 1 notification sent to your entire audience, whether that's 1 person or 1 million people.</p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h4>Free Tier</h4>
+                        <div class="price">₦0</div>
+                        <ul>
+                            <li><i class="fas fa-check text-green-500"></i> 1,000 Pushes / month</li>
+                            <li><i class="fas fa-check text-green-500"></i> 250 Emails / month</li>
+                            <li><i class="fas fa-check text-green-500"></i> 5 Apps Limit</li>
+                            <li><i class="fas fa-check text-green-500"></i> Standard Support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card" style="border-color: #7c3aed; box-shadow: 0 8px 20px rgba(124,58,237,0.15);">
+                        <h4>Pro Tier</h4>
+                        <div class="price" style="color: #7c3aed;">₦4,500<span style="font-size: 0.9rem; font-weight:normal; color:#64748b;">/mo</span></div>
+                        <ul>
+                            <li><i class="fas fa-check text-green-500"></i> 10,000 Pushes / month</li>
+                            <li><i class="fas fa-check text-green-500"></i> 2,500 Emails / month</li>
+                            <li><i class="fas fa-check text-green-500"></i> 20 Apps Limit</li>
+                            <li><i class="fas fa-check text-green-500"></i> A/B Testing & Scheduling</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Enterprise</h4>
+                        <div class="price">₦15,000<span style="font-size: 0.9rem; font-weight:normal; color:#64748b;">/mo</span></div>
+                        <ul>
+                            <li><i class="fas fa-check text-green-500"></i> 100,000 Pushes / month</li>
+                            <li><i class="fas fa-check text-green-500"></i> 25,000 Emails / month</li>
+                            <li><i class="fas fa-check text-green-500"></i> 100 Apps Limit</li>
+                            <li><i class="fas fa-check text-green-500"></i> Custom Branding & Webhooks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="next-btn-wrapper"><button class="next-btn" data-next="6">View Developer API <i class="fas fa-code"></i></button></div>
+        </div>
+
+        <!-- SECTION 6: SENDLY DOCS -->
+        <div id="section6" class="content-section">
+            <div class="blog-text">
+                <h2><i class="fas fa-laptop-code"></i> Sendly Developer Guide & API</h2>
+                <p>Integrating Sendly is effortless. The <strong>Sendly Config</strong> is a single line of JavaScript you add to your `<head>`. It handles popup permissions, service worker registration, and saves subscriptions automatically.</p>
+                
+<pre><code>&lt;!-- Add to your head tag --&gt;
+&lt;script src="https://push-notification-server-5tx2.onrender.com/sdk.js" data-api-key="sendly_live_YOUR_API_KEY"&gt;&lt;/script&gt;</code></pre>
+
+                <div class="alert-box">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <strong>Security First: Crack Signals</strong><br>
+                        Sendly features a built-in security defense. Invalid HTTP requests, failed authentication, or rate limit abuse generate "Crack Signals". If your app accumulates 100 signals, the API key is automatically locked for 48 hours to prevent unauthorized access.
+                    </div>
+                </div>
+
+                <h3><i class="fas fa-server"></i> Core API Endpoints</h3>
+                <div class="styled-table-wrapper">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Endpoint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>POST</strong></td>
+                                <td><code>/api/v1/auth/login</code></td>
+                                <td>Login & retrieve session token</td>
+                            </tr>
+                            <tr>
+                                <td><strong>POST</strong></td>
+                                <td><code>/api/v1/apps/create</code></td>
+                                <td>Create new app and generate API Key</td>
+                            </tr>
+                            <tr>
+                                <td><strong>POST</strong></td>
+                                <td><code>/api/v1/send</code></td>
+                                <td>Broadcast a push or email notification</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GET</strong></td>
+                                <td><code>/api/v1/subscribers</code></td>
+                                <td>Retrieve subscriber list</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GET</strong></td>
+                                <td><code>/api/v1/analytics/overview</code></td>
+                                <td>Fetch overall performance analytics</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3><i class="fas fa-terminal"></i> Sending a Notification (cURL)</h3>
+                <p>You can interact with Sendly's robust API straight from your server or terminal. Here is how you trigger a global push notification:</p>
+<pre><code>curl -X POST https://push-notification-server-5tx2.onrender.com/api/v1/send \
+  -H "Content-Type: application/json" \
+  -H "x-sendly-key: YOUR_API_KEY" \
+  -d '{
+    "channel": "push",
+    "title": "Hello World!",
+    "message": "This is a test notification from HGT Sendly",
+    "image": "https://example.com/image.png",
+    "button1_name": "Read More",
+    "button1_url": "https://henrygolbalindustry.blogspot.com"
+  }'</code></pre>
+                
+                <p style="margin-top: 2rem; font-weight: 600; text-align: center;">Sendly Notification — Simple, powerful, and global push notifications for the modern web. 🚀</p>
+            </div>
             <div class="next-btn-wrapper" style="justify-content: center;">
-                <button id="startOverBtn" style="background:#eef2f9; border:none; padding:0.5rem 1.2rem; border-radius:40px; font-size:0.8rem;"><i class="fas fa-home"></i> Back to start</button>
+                <button class="next-btn" id="startOverBtn" style="background:#eef2f9; color:#1f2b48; box-shadow:none;"><i class="fas fa-home"></i> Back to start</button>
             </div>
         </div>
     </div>
-    <footer>© Henry Global Tech Industry — transparency, utility, and user-first ethics since July 31st, 2025.</footer>
+    <footer>© 2026 Henry Global Tech Industry (HGT) — Transparency, Utility, and User-First Ethics. All rights reserved.</footer>
 </div>
 
 <div id="progressOverlay" class="progress-overlay">
@@ -818,12 +959,12 @@
 
 <script>
     (function(){
-        // ------------------- BUTTERFLY ANIMATION (professional, subtle) ------------------
+        // ------------------- BUTTERFLY ANIMATION ------------------
         const canvas = document.getElementById('butterflyCanvas');
         const ctx = canvas.getContext('2d');
         const fullName = "Henry Global Tech Industry";
         let particles = [];
-        let animationPhase = 0; // 0:text,1:scatter,2:butterfly,3:reassemble
+        let animationPhase = 0; 
         let phaseStart = performance.now();
         const PHASE_DURATION = 1700;
         let animFrame;
@@ -841,7 +982,6 @@
         function initAnimationPoints() {
             const w = canvas.width, h = canvas.height;
             if(w === 0) return;
-            // sample text points
             let tempCanvas = document.createElement('canvas');
             tempCanvas.width = w;
             tempCanvas.height = h;
@@ -860,7 +1000,6 @@
                 }
             }
             textPoints = points.slice(0, 480);
-            // butterfly shape
             let centerX = w/2, centerY = h/2;
             let butterflyPts = [];
             for(let i=0; i<textPoints.length; i++){
@@ -920,12 +1059,10 @@
                 animationPhase++;
                 phaseStart = performance.now();
                 if(animationPhase === 3) {
-                    // animation fully done -> reveal about button
                     document.getElementById('aboutHgtBtn').classList.add('visible');
                 }
                 requestAnimationFrame(animateCanvas);
             } else if(animationPhase === 3 && t>=1){
-                // keep final text render
                 if(!document.getElementById('aboutHgtBtn').classList.contains('visible'))
                     document.getElementById('aboutHgtBtn').classList.add('visible');
                 return;
@@ -936,11 +1073,10 @@
         window.addEventListener('resize', ()=>{ resizeAndInit(); });
         resizeAndInit();
 
-        // fallback image if pexels fails
         const imgEl = document.getElementById('techImage');
         imgEl.onerror = () => { imgEl.src = "https://placehold.co/800x450/1f2a47/ffffff?text=HGT+Tech+Campus+Global+Innovation"; };
 
-        // ---------- CIRCULAR PROGRESS + SECTION NAVIGATION (2000 word details) ----------
+        // ---------- SECTION NAVIGATION ----------
         const aboutBtn = document.getElementById('aboutHgtBtn');
         const progressOverlay = document.getElementById('progressOverlay');
         const progressRingFill = document.getElementById('progressRingFill');
@@ -992,26 +1128,27 @@
             runProgressAndShowData(()=>{
                 setTimeout(()=>{
                     progressOverlay.classList.remove('active');
-                    // show first blog section
-                    document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active-section'));
-                    document.getElementById('section1').classList.add('active-section');
-                    document.getElementById('section1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    goToSection('section1');
                 }, 200);
             });
         });
 
-        // NEXT BUTTON LOGIC
         function goToSection(sectionId){
             document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active-section'));
-            document.getElementById(sectionId).classList.add('active-section');
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const target = document.getElementById(sectionId);
+            if(target) {
+                target.classList.add('active-section');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
+
         document.querySelectorAll('.next-btn').forEach(btn => {
             btn.addEventListener('click', (e)=>{
                 const nextNum = btn.getAttribute('data-next');
                 if(nextNum) goToSection('section'+nextNum);
             });
         });
+        
         document.getElementById('startOverBtn')?.addEventListener('click', ()=>{
             goToSection('section1');
         });
