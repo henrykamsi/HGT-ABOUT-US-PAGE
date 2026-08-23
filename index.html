@@ -2,6 +2,48 @@
 <html lang="en">
 <head>
     <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Prevent duplicate injection if footer already exists
+    if (document.getElementById("dynamic-footer-links")) return;
+
+    // Create the footer container
+    const footer = document.createElement("footer");
+    footer.id = "dynamic-footer-links";
+    
+    // Style the footer container so it looks neat and stands out at the bottom
+    footer.style.textAlign = "center";
+    footer.style.padding = "20px 10px";
+    footer.style.marginTop = "40px";
+    footer.style.borderTop = "1px solid #ddd";
+    footer.style.backgroundColor = "#f9f9f9";
+    footer.style.fontFamily = "sans-serif";
+    footer.style.fontSize = "14px";
+
+    // Define your links data
+    const links = [
+      { text: "About Us", url: "https://www.henryglobaltech.name.ng/p/about-us.html?m=1" },
+      { text: "Contact Us", url: "https://www.henryglobaltech.name.ng/p/contact-us.html?m=1" },
+      { text: "Privacy Policy", url: "https://www.henryglobaltech.name.ng/p/privacy-policy.html?m=1" }
+    ];
+
+    // Build the inner HTML for the links with spacing
+    let linksHtml = '<p style="margin: 0; color: #555;">';
+    links.forEach((link, index) => {
+      linksHtml += `<a href="${link.url}" style="color: #0066cc; text-decoration: none; margin: 0 10px;">${link.text}</a>`;
+      if (index < links.length - 1) {
+        linksHtml += ' | '; // Separator between links
+      }
+    });
+    linksHtml += '</p>';
+
+    footer.innerHTML = linksHtml;
+
+    // Append the dynamically created footer to the very end of the body
+    document.body.appendChild(footer);
+  });
+</script>
+
+    <script>
 (function() {
     'use strict';
 
